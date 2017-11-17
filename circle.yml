@@ -1,0 +1,23 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker build -t concepting/database-backup:latest .
+    
+test:
+  override:
+    - "true"
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker login -e $DOCKERHUB_EMAIL -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
+      - docker push concepting/database-backup:latest
+
+notify:
+  branches:
+    only:
+      - master
