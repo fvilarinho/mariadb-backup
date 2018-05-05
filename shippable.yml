@@ -1,0 +1,28 @@
+branches:
+  only:
+    - master
+  
+build:
+  ci:
+    - docker build -t concepting/sftp:latest .
+  post_ci:
+    - docker push concepting/sftp:latest
+    
+integrations:
+  hub:
+    - integrationName: docker
+      type: Docker
+      branches:
+        only:
+          - master
+    
+  notifications:
+    - integrationName: email
+      type: email
+      branches:
+        only:
+          - master
+      on_success: always
+      on_failure: always
+      recipients:  
+        - fvilarinho@innovativethinking.com.br        

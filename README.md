@@ -1,16 +1,16 @@
-** Introdução **
+** Introduction **
 
-Database Backup é uma aplicação que permite efetuar o backup de um banco de dados MySQL/MariaDB de maneira recorrente. 
+Database Backup is an application that allows you to backup a MySQL / MariaDB database on a recurring basis. 
 
-** Última versão **
+** Last version **
 
-* [1.0.0](https://circleci.com/bb/concepting/databasebackup/tree/master) ![CircleCI](https://circleci.com/bb/concepting/databasebackup.svg?style=svg)
+* [1.0.0](https://bitbucket.org/concepting/databasebackup) ![Run Status](https://api.shippable.com/projects/5ae3c2da40a97a070030b978/badge?branch=master)
 
-** Como iniciar a aplicação **
+** How to run it **
 
-docker run -e DATABASE_HOSTNAME=<hostname> -e DATABASE_USERNAME=<username> -e DATABASE_PASSWORD=<password> -e DATABASE_NAME=<name> -e DATABASE_BACKUP_DIR=/opt/backup/data -e DATABASE_BACKUP_INTERVAL=<interval> -v <host-dir>:/opt/backup/data -d concepting/database-backup
+docker run -e DATABASE_HOSTNAME=hostname -e DATABASE_USERNAME=username -e DATABASE_PASSWORD=password -e DATABASE_NAME=name -e DATABASE_BACKUP_DIR=backupDir -e DATABASE_BACKUP_CRONTAB=crontabExpression -v hostDir:backupDir -d concepting/database-backup
 
-Em seguida, os arquivos de backup serão gerados no diretório /opt/backup/data do container e poderá ser acessado através do diretório <host-dir> da máquina host.
+Then the backup files will be generated in backupDir of the container and can be accessed through the hostDir of the host machine.
 
 ** Author **
 
