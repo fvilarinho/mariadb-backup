@@ -4,9 +4,9 @@ branches:
   
 build:
   ci:
-    - docker build -t concepting/sftp:latest .
+    - docker build -t concepting/database-backup:latest .
   post_ci:
-    - docker push concepting/sftp:latest
+    - docker push concepting/database-backup:latest
     
 integrations:
   hub:
