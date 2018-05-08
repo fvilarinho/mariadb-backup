@@ -4,7 +4,7 @@ Database Backup is an application that allows you to backup a MySQL / MariaDB da
 
 ** Last version **
 
-* [1.0.0](https://bitbucket.org/concepting/databasebackup) ![Run Status](https://api.shippable.com/projects/5ae3c2da40a97a070030b978/badge?branch=master)
+* [1.0.0](https://bitbucket.org/innovativethinking/databasebackup) ![Run Status](https://api.shippable.com/projects/5ae3c2da40a97a070030b978/badge?branch=master)
 
 ** How to run it **
 

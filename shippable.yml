@@ -4,13 +4,13 @@ branches:
   
 build:
   ci:
-    - docker build -t concepting/database-backup:latest .
+    - docker build -t innovativethinking/databasebackup:latest .
   post_ci:
-    - docker push concepting/database-backup:latest
+    - docker push innovativethinking/databasebackup:latest
     
 integrations:
   hub:
-    - integrationName: docker
+    - integrationName: dockerhub
       type: Docker
       branches:
         only:
@@ -25,4 +25,4 @@ integrations:
       on_success: always
       on_failure: always
       recipients:  
-        - fvilarinho@innovativethinking.com.br        
+        - fvilarinho@innovativethinking.com.br
