@@ -15,9 +15,9 @@ RUN apk update && \
     echo "America/Sao_Paulo" > /etc/timezone && \
     apk del tzdata
     
-ADD src/scripts/run /opt/backup/
-ADD src/scripts/startup /opt/backup/  
+ADD src/scripts/run.sh /opt/backup/
+ADD src/scripts/startup.sh /opt/backup/  
     
 RUN chmod +x /opt/backup/*    
     
-ENTRYPOINT ["/opt/backup/startup"]
+ENTRYPOINT ["/opt/backup/startup.sh"]
