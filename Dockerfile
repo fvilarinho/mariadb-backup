@@ -2,6 +2,8 @@ FROM alpine:latest
 
 MAINTAINER Felipe Vilarinho <fvilarinho@innovativethinking.com.br>
 
+ENV TZ=America/Sao_Paulo
+
 ENV DATABASE_SERVICE_HOSTNAME="localhost"
 ENV DATABASE_SERVICE_USERNAME="root"
 ENV DATABASE_SERVICE_PASSWORD=
