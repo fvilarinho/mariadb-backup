@@ -1,0 +1,9 @@
+pipelines:
+  default:
+    - step:
+        services:
+          - docker
+        script: 
+          - docker build -t concepting/database-backup:${BITBUCKET_BRANCH} .
+          - docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
+          - docker push concepting/database-backup:${BITBUCKET_BRANCH}
