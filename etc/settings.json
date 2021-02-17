@@ -1,0 +1,11 @@
+{
+	"name": "test",
+	"serverName": "host.docker.internal",
+	"serverPort": 3306,
+	"user": "user",
+	"password": "!User@2020#", 
+	"crontab": "0 * * * *",
+	"backupDir": "/home/user/data",
+	"buildName": "mariadb-backup",
+	"buildVersion": "1.0.0"
+}

@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  mariadb-backup:
+    build:
+      context: .
+    image: ghcr.io/concepting-com-br/mariadb-backup:${BUILD_VERSION}
+    container_name: mariadb-backup
+    hostname: mariadb-backup
+    depends_on:
+      - mariadb
+      - etcd
+      
+  mariadb:
+    image: ghcr.io/concepting-com-br/mariadb:1.0.0
+    container_name: mariadb
+    hostname: mariadb
+    ports:
+      - "3306:3306"
+    depends_on:
+      - etcd
+
+  etcd:
+    image: ghcr.io/concepting-com-br/etcd:1.0.0
+    container_name: etcd
+    hostname: etcd
+    ports: 
+      - "2379:2379"
+    volumes:
+      - ./etc/settings.json:/home/user/etc/mariadb-backup.json
+      - ../mariadb/etc/settings.json:/home/user/etc/mariadb.json
+      - etcd-data:/home/user/data
+
+volumes:
+  etcd-data:
+  
