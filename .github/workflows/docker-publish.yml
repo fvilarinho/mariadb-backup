@@ -1,4 +1,4 @@
-name: Docker
+name: CI/CD
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - '*.md'
       - '*.yml'
       - '*.sh'
-
+      
 jobs:
   run:
     runs-on: ubuntu-latest

@@ -1,17 +1,42 @@
-** Introduction **
+Synopsys
+========
 
-Database Backup is an application that allows you to backup a MySQL / MariaDB database on a recurring basis. 
+This a base image to backup a relational database.
+It uses the `ghcr.io/concepting-com-br/base-image` and [mariadb-client](https://mariadb.org/).
+The configurations/settings are defined using the JSON format and stored in the `etc` directory.
 
-** How to run it **
 
-docker run -e DATABASE_SERVICE_HOSTNAME=hostname -e DATABASE_SERVICE_USERNAME=username -e DATABASE_SERVICE_PASSWORD=password -e DATABASE_NAME=name -e DATABASE_BACKUP_DIR=backupDir -e DATABASE_BACKUP_CRONTAB=crontabExpression -v hostDir:backupDir -d innovativethinking/databasebackup
+Build status
+============
 
-Then the backup files will be generated in backupDir of the container and can be accessed through the hostDir of the host machine.
+![CI/CD](https://github.com/concepting-com-br/mariadb/workflows/CI/CD/badge.svg)
 
-** Author **
 
-Felipe Vilarinho 
+How to use
+==========
 
-fvilarinho@innovativethinking.com.br
+Just put the line below in your Dockerfile.
 
-+55 11 9 8222-9197
+`FROM ghcr.io/concepting-com-br/mariadb-backup:1.0.0` - To use the last stable version.
+
+`FROM ghcr.io/concepting-com-br/mariadb-backup:latest` - To use the development version.
+
+
+License
+=======
+
+This image is licensed under the Apache 2.0. Please read the licence file or check the URL [https://www.apache.org/licenses/LICENSE-2.0.txt](https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+
+Author
+======
+
+My name is Felipe Vilarinho (A.K.A Vila) and you can know more about me at the social medias below:
+
+1. [LinkedIn](https://br.linkedin.com/in/fvilarinho)
+
+Or send an email to fvilarinho@gmail.com or fvilarinho@concepting.com.br
+
+Have Fun!
+
+Best
