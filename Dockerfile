@@ -12,7 +12,7 @@ COPY bin/startup.sh ${BIN_DIR}/child-startup.sh
 COPY .env ${ETC_DIR}/
     
 RUN chmod +x ${BIN_DIR}/child-*.sh && \
-    chown -R user:group ${HOME_DIR}/
+    chown -R user:group ${HOME_DIR}/ && \
     chmod -R o-rwx ${HOME_DIR}/
 
 CMD ["${BIN_DIR}/child-startup.sh"]
