@@ -1,11 +1,40 @@
 {
-	"name": "test",
-	"serverName": "host.docker.internal",
-	"serverPort": 3306,
-	"user": "user",
-	"password": "!User@2020#", 
-	"crontab": "0 * * * *",
-	"backupDir": "/home/user/data",
-	"buildName": "mariadb-backup",
-	"buildVersion": "1.0.0"
+	"serverName": {
+		"description": "Defines the IP/hostname of the MariaDB service.",
+		"value": "host.docker.internal"
+	},
+	"serverPort": {
+		"description": "Defines the listen port of the MariaDB service.",
+		"value": 3306
+	},
+	"user": {
+		"description": "Defines the user name of the MariaDB service.",
+		"value": "user"
+	},
+	"password": {
+		"description": "Defines the user password of the MariaDB service.",
+		"value": "!User@2021#"
+	},
+	"databaseName": {
+		"description": "Defines the database name of the MariaDB service.",
+		"value": "test"
+	},
+	"crontab": {
+		"description": "Defines the scheduling expression (crontab format) for the backup.",
+		"value": "0 0 * * *"
+	},
+	"backupDir": {
+		"description": "Defines the directory to store the backup files.",
+		"value": "/home/user/data"
+	},
+	"build":{
+		"name": {
+			"description": "Name of the build.",
+			"value": "mariadb-backup"
+		},
+		"version": {
+			"description": "Version of the build.",
+			"value": "latest"
+		}
+	}
 }
