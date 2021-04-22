@@ -3,14 +3,14 @@
 source $BIN_DIR/functions.sh
 
 SETTINGS=$(getSettings)
-SERVER_NAME=`echo $SETTINGS | jq -r .serverName`
-SERVER_PORT=`echo $SETTINGS | jq -r .serverPort`
-USER=`echo $SETTINGS | jq -r .user`
-PASSWORD=`echo $SETTINGS | jq -r .password`
-NAME=`echo $SETTINGS | jq -r .name`
-BACKUP_DIR=`echo $SETTINGS | jq -r .backupDir`
+SERVER_NAME=`echo $SETTINGS | jq -r .serverName.value`
+SERVER_PORT=`echo $SETTINGS | jq -r .serverPort.value`
+USER=`echo $SETTINGS | jq -r .user.value`
+PASSWORD=`echo $SETTINGS | jq -r .password.value`
+DATABASE_NAME=`echo $SETTINGS | jq -r .databaseName.value`
+BACKUP_DIR=`echo $SETTINGS | jq -r .backupDir.value`
 TIMESTAMP=`date +"%Y%m%d%H%M"`
-BACKUP_FILE="$BACKUP_DIR/dump-$NAME-$TIMESTAMP.sql"
+BACKUP_FILE="$BACKUP_DIR/dump-$DATABASE_NAME-$TIMESTAMP.sql"
 
 if [ ! -d "$BACKUP_DIR" ]; then
     echo "Creating the backup directory..."
@@ -20,6 +20,6 @@ if [ ! -d "$BACKUP_DIR" ]; then
 	echo "Backup directory created!"
 fi
 
-echo "Backing up $NAME in $BACKUP_FILE..."
-mysqldump --single-transaction=true -h $SERVER_NAME -P $SERVER_PORT -u $USER -p$PASSWORD $NAME > $BACKUP_FILE
+echo "Backing up $DATABASE_NAME in $BACKUP_FILE..."
+mysqldump --single-transaction=true -h $SERVER_NAME -P $SERVER_PORT -u $USER -p$PASSWORD $DATABASE_NAME > $BACKUP_FILE
 echo "Backup done."

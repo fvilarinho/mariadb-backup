@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BUILD_VERSION=`jq -r .buildVersion ./etc/settings.json`
+BUILD_VERSION=`jq -r .build.version.value ./etc/settings.json`
 
 echo "BUILD_VERSION=$BUILD_VERSION" > .env
 
