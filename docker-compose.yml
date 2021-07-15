@@ -12,7 +12,7 @@ services:
       - etcd
       
   mariadb:
-    image: ghcr.io/concepting-com-br/mariadb:1.0.0
+    image: ghcr.io/concepting-com-br/mariadb:1.1.0
     container_name: mariadb
     hostname: mariadb
     ports:
@@ -21,7 +21,7 @@ services:
       - etcd
 
   etcd:
-    image: ghcr.io/concepting-com-br/etcd:1.0.0
+    image: ghcr.io/concepting-com-br/etcd:1.1.0
     container_name: etcd
     hostname: etcd
     ports: 
