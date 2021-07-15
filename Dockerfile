@@ -9,7 +9,7 @@ RUN apk update && \
     
 COPY bin/run.sh ${BIN_DIR}/
 COPY bin/startup.sh ${BIN_DIR}/child-startup.sh
-COPY .env ${ETC_DIR}/
+COPY .env ${ETC_DIR}/.release
     
 RUN chmod +x ${BIN_DIR}/*.sh && \
     chown -R user:group ${HOME_DIR}/ && \
