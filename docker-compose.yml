@@ -4,15 +4,15 @@ services:
   mariadb-backup:
     build:
       context: .
-    image: ghcr.io/concepting-com-br/mariadb-backup:${BUILD_VERSION}
-    container_name: mariadb-backup
-    hostname: mariadb-backup
+    image: ghcr.io/fvilarinho/${BUILD_NAME}:${BUILD_VERSION}
+    container_name: ${BUILD_NAME}
+    hostname: ${BUILD_NAME}
     depends_on:
       - mariadb
       - etcd
       
   mariadb:
-    image: ghcr.io/concepting-com-br/mariadb:1.0.0
+    image: ghcr.io/fvilarinho/mariadb:1.1.0
     container_name: mariadb
     hostname: mariadb
     ports:
@@ -21,13 +21,13 @@ services:
       - etcd
 
   etcd:
-    image: ghcr.io/concepting-com-br/etcd:1.0.0
+    image: ghcr.io/fvilarinho/etcd:1.1.0
     container_name: etcd
     hostname: etcd
     ports: 
       - "2379:2379"
     volumes:
-      - ./etc/settings.json:/home/user/etc/mariadb-backup.json
+      - ./etc/settings.json:/home/user/etc/${BUILD_NAME}.json
       - ../mariadb/etc/settings.json:/home/user/etc/mariadb.json
       - etcd-data:/home/user/data
 
