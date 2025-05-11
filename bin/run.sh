@@ -9,8 +9,15 @@ USER=`echo $SETTINGS | jq -r .user.value`
 PASSWORD=`echo $SETTINGS | jq -r .password.value`
 DATABASE_NAME=`echo $SETTINGS | jq -r .databaseName.value`
 BACKUP_DIR=`echo $SETTINGS | jq -r .backupDir.value`
-TIMESTAMP=`date +"%Y%m%d%H%M"`
-BACKUP_FILE="$BACKUP_DIR/dump-$DATABASE_NAME-$TIMESTAMP.sql"
+BACKUP_PATTERN=`echo $SETTINGS | jq -r .backupPattern.value`
+
+if [ -n "$BACKUP_PATTERN" ]; then
+  TIMESTAMP=`date +"$BACKUP_PATTERN"`
+
+  BACKUP_FILE="$BACKUP_DIR/dump-$TIMESTAMP.sql"
+else
+  BACKUP_FILE="$BACKUP_DIR/dump.sql"
+fi
 
 if [ ! -d "$BACKUP_DIR" ]; then
     echo "Creating the backup directory..."

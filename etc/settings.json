@@ -21,20 +21,14 @@
 	},
 	"crontab": {
 		"description": "Defines the scheduling expression (crontab format) for the backup.",
-		"value": "0 0 * * *"
+		"value": "* * * * *"
 	},
 	"backupDir": {
 		"description": "Defines the directory to store the backup files.",
 		"value": "/home/user/data"
 	},
-	"build":{
-		"name": {
-			"description": "Name of the build.",
-			"value": "mariadb-backup"
-		},
-		"version": {
-			"description": "Version of the build.",
-			"value": "1.1.0"
-		}
+	"backupPattern": {
+		"description": "Defines the pattern backup filename.",
+		"value": "%Y%m%d%H%M"
 	}
 }
