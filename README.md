@@ -17,7 +17,7 @@ How to use
 
 Just put the line below in your Dockerfile.
 
-`FROM ghcr.io/fvilarinho/mariadb-backup:1.1.0` - To use the last stable version.
+`FROM ghcr.io/fvilarinho/mariadb-backup:1.2.0` - To use the last stable version.
 
 `FROM ghcr.io/fvilarinho/mariadb-backup:latest` - To use the development version.
 
