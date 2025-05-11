@@ -2,9 +2,9 @@ services:
   mariadb-backup:
     build:
       context: .
-    image: ${DOCKER_REGISTRY_URL}/${DOCKER_REGISTRY_ID}/mariadb-backup:${BUILD_VERSION}
-    container_name: mariadb-backup
-    hostname: mariadb-backup
+    image: ${DOCKER_REGISTRY_URL}/${DOCKER_REGISTRY_ID}/${BUILD_NAME}:${BUILD_VERSION}
+    container_name: ${BUILD_NAME}
+    hostname: ${BUILD_NAME}
     depends_on:
       - mariadb
       - etcd
@@ -25,7 +25,7 @@ services:
     ports: 
       - "2379:2379"
     volumes:
-      - ./etc/settings.json:/home/user/etc/mariadb-backup.json
+      - ./etc/settings.json:/home/user/etc/${BUILD_NAME}.json
       - ../mariadb/etc/settings.json:/home/user/etc/mariadb.json
       - etcd-data:/home/user/data
 
