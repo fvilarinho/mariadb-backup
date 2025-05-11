@@ -21,7 +21,7 @@
 	},
 	"crontab": {
 		"description": "Defines the scheduling expression (crontab format) for the backup.",
-		"value": "* * * * *"
+		"value": "0 0 * * *"
 	},
 	"backupDir": {
 		"description": "Defines the directory to store the backup files.",
