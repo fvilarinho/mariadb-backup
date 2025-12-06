@@ -12,6 +12,10 @@ Just put the line below in your Dockerfile.
 
 `FROM ghcr.io/fvilarinho/mariadb-backup:latest` - To use the development version.
 
+Build status
+============
+[![CI/CD Pipeline](https://github.com/fvilarinho/mariadb-backup/actions/workflows/pipeline.yml/badge.svg)](https://github.com/fvilarinho/mariadb-backup/actions/workflows/pipeline.yml)
+
 License
 =======
 This image is licensed under the Apache 2.0. Please read the licence file or check the URL [https://www.apache.org/licenses/LICENSE-2.0.txt](https://www.apache.org/licenses/LICENSE-2.0.txt)
